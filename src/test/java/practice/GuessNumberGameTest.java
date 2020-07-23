@@ -41,6 +41,17 @@ public class GuessNumberGameTest {
         assertEquals("0A0B", result);
     }
 
+    @Test
+    public void should_return_0A2B_when_generateResult_given_3456(){
+//        given
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
+        int[] answer = {1,2,3,4};
+        int[] number = {3,4,5,8};
+//        when
+        String result = guessNumberGame.generateResult(number, answer);
+//        then
+        assertEquals("0A2B", result);
+    }
 
 
 }
