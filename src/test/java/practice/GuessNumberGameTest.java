@@ -77,4 +77,16 @@ public class GuessNumberGameTest {
         assertEquals("1A1B", result);
     }
 
+    @Test
+    public void should_return_right_output_when_play_game_given_right__wo_dimensional_array(){
+//        given
+        GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
+        int[][] number = {{1,5,6,7},{2,4,7,8},{0,3,2,4},{5,6,7,8},{4,3,2,1},{1,2,3,4}};
+        String expected = "1A0B\n0A2B\n1A2B\n0A0B\n0A4B\n4A0B";
+//        when
+        String result = guessNumberGame.playGame(number);
+//        then
+        assertEquals(expected, result);
+
+    }
 }
