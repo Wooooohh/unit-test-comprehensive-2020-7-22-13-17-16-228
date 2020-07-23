@@ -44,3 +44,28 @@ When inputting, separate the numbers with spaces.
 ## Practice Output && Submit
 - You should implement the test code and push your repo to github repo named **unit-test-comprehensive**.
 - Commit your repository link to complete this Question.
+
+tdd:
+PDCA(test class)
+
+| pdca | GuessNumberGameTest|
+| :-----:| :----: |
+| p | 60min |
+| d | 100min |
+| c | 刚开始没有考虑清楚整个需求，在后来有发现新的需求 |
+| a | 在拿到任务的时候，注重需求是否清楚，并估摸好适当的时间来完成测试用例 |
+
+| pdca | RandomAnswerGeneratorTest|
+| :-----:| :----: |
+| p | 20min |
+| d | 10min |
+| c | 需求清晰，编码一般，测试用例简单，借用了NumberValidator |
+| a | |
+
+| pdca | NumberValidatorTest|
+| :-----:| :----: |
+| p | 20min |
+| d | 20min |
+| c | 测试用例相对明了，编码简单 |
+| a | 尝试其他方法使用其他，更快得出测试用例 |
+
