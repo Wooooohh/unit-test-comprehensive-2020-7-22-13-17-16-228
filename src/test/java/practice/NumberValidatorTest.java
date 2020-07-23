@@ -7,10 +7,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class NumberValidatorTest {
 
     @Test
-    public void should_return_false_when_check_number_given_1_f1_2_13(){
+    public void should_return_false_when_check_number_given_1_f1_2_9(){
 //        given
         NumberValidator numberValidator = new NumberValidator();
         int[] number = {1,-1,2,9};
+//        when
+        boolean result = numberValidator.checkNumber(number);
+//        then
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void should_return_false_when_check_number_given_1_3_2_11(){
+//        given
+        NumberValidator numberValidator = new NumberValidator();
+        int[] number = {1,3,2,11};
 //        when
         boolean result = numberValidator.checkNumber(number);
 //        then
