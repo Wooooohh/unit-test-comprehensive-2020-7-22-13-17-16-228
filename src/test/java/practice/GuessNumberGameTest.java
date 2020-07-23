@@ -28,4 +28,19 @@ public class GuessNumberGameTest {
 //        then
         assertEquals("0A4B", result);
     }
+
+    @Test
+    public void should_return_0A0B_when_generateResult_given_5678(){
+//        given
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
+        int[] answer = {1,2,3,4};
+        int[] number = {5,6,7,8};
+//        when
+        String result = guessNumberGame.generateResult(number, answer);
+//        then
+        assertEquals("0A0B", result);
+    }
+
+
+
 }
