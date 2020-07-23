@@ -27,4 +27,15 @@ public class NumberValidatorTest {
 //        then
         assertEquals(false, result);
     }
+
+    @Test
+    public void should_return_false_when_check_number_given_1_3_2(){
+//        given
+        NumberValidator numberValidator = new NumberValidator();
+        int[] number = {1,3,2};
+//        when
+        boolean result = numberValidator.checkNumber(number);
+//        then
+        assertEquals(false, result);
+    }
 }
