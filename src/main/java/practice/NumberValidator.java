@@ -4,7 +4,7 @@ public class NumberValidator {
 
     boolean checkNumber(int[] number){
         for(int i = 0; i < number.length; i++){
-            if(number[i] < 0){
+            if(number[i] < 0 || number[i] > 9){
                 return false;
             }
         }
