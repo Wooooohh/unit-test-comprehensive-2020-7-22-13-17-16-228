@@ -112,4 +112,16 @@ public class GuessNumberGameTest {
 //        then
         assertEquals(expected, result);
     }
+
+    @Test
+    public void should_return_1A0B_0A2B_1A2B_0A0B_0A4B_0A4B_4A0B_when_play_game_given_1567_2478_0324_5678_4321_4321_1234(){
+//        given
+        GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
+        int[][] number = {{1,5,6,7},{2,4,7,8},{0,3,2,4},{5,6,7,8},{4,3,2,1},{4,3,2,1},{1,2,3,4}};
+        String expected = "1A0B\n0A2B\n1A2B\n0A0B\n0A4B\n0A4B";
+//        when
+        String result = guessNumberGame.playGame(number);
+//        then
+        assertEquals(expected, result);
+    }
 }
