@@ -10,6 +10,7 @@ public class GuessNumberGame {
 
     int times = 6;
 
+
     GuessNumberGame(AnswerGenerator answerGenerator){
         this.answerGenerator = answerGenerator;
         numberValidator = new NumberValidator();
