@@ -4,11 +4,16 @@ public class GuessNumberGame {
 
     AnswerGenerator answerGenerator;
 
+    NumberValidator numberValidator;
+
     GuessNumberGame(AnswerGenerator answerGenerator){
         this.answerGenerator = answerGenerator;
+        numberValidator = new NumberValidator();
     }
 
     public String generateResult(int[] number, int[] answer) {
+        numberValidator.checkNumber(number);
+        numberValidator.checkNumber(answer);
         int A = 0;
         int B = 0;
         int[] cache = new int[10];
