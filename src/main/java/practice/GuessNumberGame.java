@@ -22,14 +22,16 @@ public class GuessNumberGame {
 //        numberValidator.checkNumber(number);
         numberValidator.checkNumber(answer);
         for(int i = 0; i < times-1; i++) {
-
-//            if(!numberValidator.checkNumber(number[i]))
-//                stringBuilder.append("Wrong Input，Input again");
+            if(!numberValidator.checkNumber(number[i]))
+                stringBuilder.append("Wrong Input，Input again\n");
 //            if (processController.isExit(generateResult(number[times], answer), times))
 //                return stringBuilder.toString();
             stringBuilder.append(generateResult(number[i], answer)+"\n");
         }
-        stringBuilder.append(generateResult(number[5], answer));
+        if(!numberValidator.checkNumber(number[times-1]))
+            stringBuilder.append("Wrong Input，Input again");
+        else
+            stringBuilder.append(generateResult(number[times-1], answer));
         return stringBuilder.toString();
     }
 
