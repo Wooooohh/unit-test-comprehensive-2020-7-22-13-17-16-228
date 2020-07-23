@@ -6,16 +6,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GuessNumberGameTest {
 
     @Test
-    public void should_return (){
+    public void should_return_4A0B_when_generateResult_given_1234 (){
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame();
         int[] answer = {1,2,3,4};
         int[] number = {1,2,3,4};
 //        when
-
         String result = guessNumberGame.generateResult(number, answer);
-
 //        then
         assertEquals("4A0B", result);
+    }
+
+    @Test
+    public void should_return_0A4B_when_generateResult_given_4321(){
+//        given
+        GuessNumberGame guessNumberGame = new GuessNumberGame();
+        int[] answer = {1,2,3,4};
+        int[] number = {4,3,2,1};
+//        when
+        String result = guessNumberGame.generateResult(number, answer);
+//        then
+        assertEquals("0A4B", result);
     }
 }
