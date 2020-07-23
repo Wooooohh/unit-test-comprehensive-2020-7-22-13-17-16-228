@@ -6,14 +6,35 @@ public class GuessNumberGame {
 
     NumberValidator numberValidator;
 
+    ProcessController processController;
+
+    int times = 6;
+
     GuessNumberGame(AnswerGenerator answerGenerator){
         this.answerGenerator = answerGenerator;
         numberValidator = new NumberValidator();
+        processController = new ProcessController();
     }
 
-    public String generateResult(int[] number, int[] answer) {
-        numberValidator.checkNumber(number);
+    public String playGame(int[][] number){
+        StringBuilder stringBuilder = new StringBuilder();
+        int[] answer = new FixedAnswerGenerator().generateAnswer();
+//        numberValidator.checkNumber(number);
         numberValidator.checkNumber(answer);
+        for(int i = 0; i < times-1; i++) {
+
+//            if(!numberValidator.checkNumber(number[i]))
+//                stringBuilder.append("Wrong Input，Input again");
+//            if (processController.isExit(generateResult(number[times], answer), times))
+//                return stringBuilder.toString();
+            stringBuilder.append(generateResult(number[i], answer)+"\n");
+        }
+        stringBuilder.append(generateResult(number[5], answer));
+        return stringBuilder.toString();
+    }
+
+
+    public String generateResult(int[] number, int[] answer) {
         int A = 0;
         int B = 0;
         int[] cache = new int[10];
