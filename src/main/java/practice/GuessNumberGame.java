@@ -26,7 +26,12 @@ public class GuessNumberGame {
                 stringBuilder.append("Wrong Input，Input again\n");
 //            if (processController.isExit(generateResult(number[times], answer), times))
 //                return stringBuilder.toString();
-            stringBuilder.append(generateResult(number[i], answer)+"\n");
+            String result = generateResult(number[i], answer);
+            if(result.equals("4A0B")){
+                stringBuilder.append(result);
+                return stringBuilder.toString();
+            }
+            stringBuilder.append(result+"\n");
         }
         if(!numberValidator.checkNumber(number[times-1]))
             stringBuilder.append("Wrong Input，Input again");
