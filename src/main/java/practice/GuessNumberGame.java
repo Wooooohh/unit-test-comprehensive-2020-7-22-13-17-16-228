@@ -2,10 +2,18 @@ package practice;
 
 public class GuessNumberGame {
     public String generateResult(int[] number, int[] answer) {
-        for(int i = 0; i <4; i++){
-            if(number[i] != answer[i])
-                return null;
+        int A = 0;
+        int B = 0;
+        int[] cache = new int[10];
+        for (int i = 0; i < 4; i++) {
+            cache[answer[i]] = 1;
         }
-        return "4A0B";
+        for (int i = 0; i < 4; i++) {
+            if (number[i] == answer[i])
+                A++;
+            else if(cache[number[i]] == 1 )
+                B++;
+        }
+        return A + "A" + B + "B";
     }
 }
