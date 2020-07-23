@@ -1,6 +1,13 @@
 package practice;
 
 public class GuessNumberGame {
+
+    AnswerGenerator answerGenerator;
+
+    GuessNumberGame(AnswerGenerator answerGenerator){
+        this.answerGenerator = answerGenerator;
+    }
+
     public String generateResult(int[] number, int[] answer) {
         int A = 0;
         int B = 0;
@@ -16,4 +23,9 @@ public class GuessNumberGame {
         }
         return A + "A" + B + "B";
     }
+
+    public int[] generateAnswer(){
+        return answerGenerator.generateAnswer();
+    }
+
 }
