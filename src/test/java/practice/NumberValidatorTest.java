@@ -60,4 +60,15 @@ public class NumberValidatorTest {
 //        then
         assertEquals(true, result);
     }
+
+    @Test
+    public void should_return_false_when_check_number_given_1_2_2_4(){
+//        given
+        NumberValidator numberValidator = new NumberValidator();
+        int[] number = {1,2,2,4};
+//        when
+        boolean result = numberValidator.checkNumber(number);
+//        then
+        assertEquals(false, result);
+    }
 }
