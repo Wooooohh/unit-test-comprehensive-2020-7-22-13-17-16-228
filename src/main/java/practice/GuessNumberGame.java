@@ -22,8 +22,10 @@ public class GuessNumberGame {
         for(int i = 0; i < times-1; i++) {
             if(!numberValidator.checkNumber(number[i]))
                 stringBuilder.append("Wrong Input，Input again\n");
-            if (processController.isExit(generateResult(number[i], answer), i))
+            if (processController.isExit(generateResult(number[i], answer), i) == 0) {
+                stringBuilder.append("4A0B");
                 return stringBuilder.toString();
+            }
             String result = generateResult(number[i], answer);
             if(result.equals("4A0B")){
                 stringBuilder.append(result);
