@@ -16,30 +16,6 @@ public class GuessNumberGame {
         processController = new ProcessController();
     }
 
-//    public String playGame(int[][] number){
-//        StringBuilder stringBuilder = new StringBuilder();
-//        int[] answer = answerGenerator.generateAnswer();
-//        for(int i = 0; i < times-1; i++) {
-//            if(!numberValidator.checkNumber(number[i]))
-//                stringBuilder.append("Wrong Input，Input again\n");
-//            if (processController.isExit(generateResult(number[i], answer), i) == 0) {
-//                stringBuilder.append("4A0B");
-//                return stringBuilder.toString();
-//            }
-//            String result = generateResult(number[i], answer);
-//            if(result.equals("4A0B")){
-//                stringBuilder.append(result);
-//                return stringBuilder.toString();
-//            }
-//            stringBuilder.append(result+"\n");
-//
-//        }
-//        if(!numberValidator.checkNumber(number[times-1]))
-//            stringBuilder.append("Wrong Input，Input again");
-//        else
-//            stringBuilder.append(generateResult(number[times-1], answer));
-//        return stringBuilder.toString();
-//    }
     public String playGame(int[][] numbers){
         StringBuilder result = new StringBuilder();
         int[] answer = answerGenerator.generateAnswer();
