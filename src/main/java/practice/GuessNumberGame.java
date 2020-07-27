@@ -46,23 +46,28 @@ public class GuessNumberGame {
     }
 
     public String generateResult(int[] number, int[] answer) {
-        int A = 0;
-        int B = 0;
-        int[] cache = new int[10];
-        for (int i = 0; i < 4; i++) {
-            cache[answer[i]] = 1;
-        }
+        int numA = 0;
+        int numB = 0;
+        int[] appearArr = calculeAppear(answer);
+
         for (int i = 0; i < 4; i++) {
             if (number[i] == answer[i])
-                A++;
-            else if (cache[number[i]] == 1)
-                B++;
+                numA++;
+            else if (appearArr[number[i]] == 1)
+                numB++;
         }
-        return A + "A" + B + "B";
+        return numA + "A" + numB + "B";
     }
 
     public int[] generateAnswer() {
         return answerGenerator.generateAnswer();
     }
 
+    public int[] calculeAppear(int[] answer) {
+        int[] appearArr = new int[10];
+        for (int i = 0; i < 4; i++) {
+            appearArr[answer[i]] = 1;
+        }
+        return appearArr;
+    }
 }
