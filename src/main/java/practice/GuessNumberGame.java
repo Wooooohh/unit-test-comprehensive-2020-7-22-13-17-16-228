@@ -20,7 +20,7 @@ public class GuessNumberGame {
 
     public String playGame(int[][] numbers) {
         StringBuilder result = new StringBuilder();
-        int[] answer = answerGenerator.generateAnswer();
+        int[] answer = generateAnswer();
         int times = 1;
         for (int[] number : numbers) {
             if (!numberValidator.checkNumber(number)) {
@@ -43,6 +43,10 @@ public class GuessNumberGame {
             }
         }
         return result.toString();
+    }
+
+    public int[] generateAnswer(){
+        return answerGenerator.generateAnswer();
     }
 
     public String generateResult(int[] number, int[] answer) {
