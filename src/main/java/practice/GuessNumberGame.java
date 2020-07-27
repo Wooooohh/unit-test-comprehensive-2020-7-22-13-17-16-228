@@ -24,10 +24,7 @@ public class GuessNumberGame {
         int times = 1;
         for (int[] number : numbers) {
             if (!numberValidator.checkNumber(number)) {
-                if (times == TOTAL_TIMES)
-                    result.append(ERROR_INPUT_INFO);
-                else
-                    result.append(ERROR_INPUT_INFO + "\n");
+                appendErrorMessage(result, times);
             } else {
                 String xAxB = generateResult(number, answer);
                 int statusCode = processController.isExit(generateResult(number, answer), times++);
@@ -43,6 +40,13 @@ public class GuessNumberGame {
             }
         }
         return result.toString();
+    }
+
+    private void appendErrorMessage(StringBuilder result, int times) {
+        if (times == TOTAL_TIMES)
+            result.append(ERROR_INPUT_INFO);
+        else
+            result.append(ERROR_INPUT_INFO + "\n");
     }
 
     public int[] generateAnswer(){

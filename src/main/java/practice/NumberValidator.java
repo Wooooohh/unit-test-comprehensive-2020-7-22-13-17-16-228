@@ -14,7 +14,7 @@ public class NumberValidator {
 
     public boolean isValuesInRange(int[] number){
         for(int i = 0; i < 4; i++){
-            if(!isValueInRange(number[i])){
+            if(isValueInRange(number[i])){
                 return false;
             }
         }
