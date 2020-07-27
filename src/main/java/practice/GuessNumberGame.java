@@ -1,5 +1,8 @@
 package practice;
 
+//import java.util.Arrays;
+//import java.util.Scanner;
+
 import static practice.ConstantPool.ERROR_INPUT_INFO;
 
 public class GuessNumberGame {
@@ -28,10 +31,7 @@ public class GuessNumberGame {
             } else {
                 String xAxB = generateResult(number, answer);
                 int statusCode = processController.isExit(generateResult(number, answer), times++);
-                if (statusCode == Status.WIN.getCode()) {
-                    result.append(xAxB);
-                    break;
-                } else if (statusCode == Status.RUN_OUT.getCode()) {
+                if (statusCode == Status.WIN.getCode() || statusCode == Status.RUN_OUT.getCode()) {
                     result.append(xAxB);
                     break;
                 } else if (statusCode == Status.CONTINUE.getCode()) {
