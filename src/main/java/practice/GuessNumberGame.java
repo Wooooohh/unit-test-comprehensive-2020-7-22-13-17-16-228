@@ -10,7 +10,6 @@ public class GuessNumberGame {
 
     int times = 6;
 
-
     GuessNumberGame(AnswerGenerator answerGenerator){
         this.answerGenerator = answerGenerator;
         numberValidator = new NumberValidator();
@@ -20,19 +19,18 @@ public class GuessNumberGame {
     public String playGame(int[][] number){
         StringBuilder stringBuilder = new StringBuilder();
         int[] answer = new FixedAnswerGenerator().generateAnswer();
-//        numberValidator.checkNumber(number);
-        numberValidator.checkNumber(answer);
         for(int i = 0; i < times-1; i++) {
             if(!numberValidator.checkNumber(number[i]))
                 stringBuilder.append("Wrong Input，Input again\n");
-//            if (processController.isExit(generateResult(number[times], answer), times))
-//                return stringBuilder.toString();
+            if (processController.isExit(generateResult(number[i], answer), i))
+                return stringBuilder.toString();
             String result = generateResult(number[i], answer);
             if(result.equals("4A0B")){
                 stringBuilder.append(result);
                 return stringBuilder.toString();
             }
             stringBuilder.append(result+"\n");
+
         }
         if(!numberValidator.checkNumber(number[times-1]))
             stringBuilder.append("Wrong Input，Input again");

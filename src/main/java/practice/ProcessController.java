@@ -2,10 +2,8 @@ package practice;
 
 public class ProcessController {
 
-    public boolean isExit(String generateResult, int times) {
-        return true;
+    public int isExit(String result, int times) {
+        return 4;
     }
-
-
 
 }

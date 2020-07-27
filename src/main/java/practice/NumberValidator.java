@@ -3,7 +3,7 @@ package practice;
 public class NumberValidator {
 
     boolean checkNumber(int[] number){
-        int[] cache = new int[4];
+        int[] cache = new int[10];
         if(number.length != 4)
             return false;
         for(int i = 0; i < 4; i++){
