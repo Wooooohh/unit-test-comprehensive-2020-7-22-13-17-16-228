@@ -3,7 +3,7 @@ package practice;
 public class NumberValidator {
 
     boolean checkNumber(int[] number){
-        return isLengthInBorder(number) && isValueInRange(number) && isDuplicate(number);
+        return isLengthInBorder(number) && isValuesInRange(number) && isDuplicate(number);
     }
 
     public boolean isLengthInBorder(int[] number){
@@ -12,13 +12,17 @@ public class NumberValidator {
         return true;
     }
 
-    public boolean isValueInRange(int[] number){
+    public boolean isValuesInRange(int[] number){
         for(int i = 0; i < 4; i++){
-            if(number[i] < 0 || number[i] > 9){
+            if(!isValueInRange(number[i])){
                 return false;
             }
         }
         return true;
+    }
+
+    private boolean isValueInRange(int value) {
+        return value < 0 || value > 9;
     }
 
     public boolean isDuplicate(int[] number){
