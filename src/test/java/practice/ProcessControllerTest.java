@@ -34,6 +34,14 @@ public class ProcessControllerTest {
 
     @Test
     public void should_return_2_when_given_isExit_given_process_controller_1A1B_and_times_between_0_6(){
+        //given
+        String result = "1A1B";
+        int times = 5;
+        ProcessController processController = new ProcessController();
+        //when
+        int status = processController.isExit(result, times);
 
+        //then
+        assertEquals(2, status);
     }
 }
