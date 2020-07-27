@@ -28,14 +28,14 @@ public class GuessNumberGame {
                     result.append("Wrong Input，Input again\n");
             } else{
                 String xAxB = generateResult(number, answer);
-                int status = processController.isExit(generateResult(number, answer), times++);
-                if(status == 0){
+                int statusCode = processController.isExit(generateResult(number, answer), times++);
+                if(statusCode == Status.WIN.getCode()){
                     result.append(xAxB);
                     break;
-                }else if(status == 1){
+                }else if(statusCode == Status.RUN_OUT.getCode()){
                     result.append(xAxB);
                     break;
-                }else if(status ==2){
+                }else if(statusCode == Status.CONTINUE.getCode()){
                     result.append(xAxB + "\n");
                 }
             }
