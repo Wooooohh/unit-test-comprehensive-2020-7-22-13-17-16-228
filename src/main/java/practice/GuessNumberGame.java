@@ -50,16 +50,17 @@ public class GuessNumberGame {
     }
 
     public String generateResult(int[] number, int[] answer) {
-        Result result = new Result(0, 0);
-        int[] appearArr = calculateAppear(answer);
+        return countResult(calculateAppear(answer), number, new Result(0, 0),answer).formatResult();
+    }
 
+    private Result countResult(int[] appearArr, int[] number, Result result, int[] answer) {
         for (int i = 0; i < 4; i++) {
             if (number[i] == answer[i])
                 result.addA();
             else if (appearArr[number[i]] == 1)
                 result.addB();
         }
-        return result.formatResult();
+        return result;
     }
 
     public int[] calculateAppear(int[] answer) {
