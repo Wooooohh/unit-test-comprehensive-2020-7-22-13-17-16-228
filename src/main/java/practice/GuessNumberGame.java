@@ -1,5 +1,7 @@
 package practice;
 
+import static practice.ConstantPool.ERROR_INPUT_INFO;
+
 public class GuessNumberGame {
 
     AnswerGenerator answerGenerator;
@@ -10,32 +12,32 @@ public class GuessNumberGame {
 
     final int TOTAL_TIMES = 6;
 
-    GuessNumberGame(AnswerGenerator answerGenerator){
+    GuessNumberGame(AnswerGenerator answerGenerator) {
         this.answerGenerator = answerGenerator;
         numberValidator = new NumberValidator();
         processController = new ProcessController();
     }
 
-    public String playGame(int[][] numbers){
+    public String playGame(int[][] numbers) {
         StringBuilder result = new StringBuilder();
         int[] answer = answerGenerator.generateAnswer();
-        int times=1;
-        for(int[] number : numbers) {
-            if(!numberValidator.checkNumber(number)) {
-                if(times == TOTAL_TIMES)
-                    result.append("Wrong Input，Input again");
+        int times = 1;
+        for (int[] number : numbers) {
+            if (!numberValidator.checkNumber(number)) {
+                if (times == TOTAL_TIMES)
+                    result.append(ERROR_INPUT_INFO);
                 else
-                    result.append("Wrong Input，Input again\n");
-            } else{
+                    result.append(ERROR_INPUT_INFO + "\n");
+            } else {
                 String xAxB = generateResult(number, answer);
                 int statusCode = processController.isExit(generateResult(number, answer), times++);
-                if(statusCode == Status.WIN.getCode()){
+                if (statusCode == Status.WIN.getCode()) {
                     result.append(xAxB);
                     break;
-                }else if(statusCode == Status.RUN_OUT.getCode()){
+                } else if (statusCode == Status.RUN_OUT.getCode()) {
                     result.append(xAxB);
                     break;
-                }else if(statusCode == Status.CONTINUE.getCode()){
+                } else if (statusCode == Status.CONTINUE.getCode()) {
                     result.append(xAxB + "\n");
                 }
             }
@@ -53,13 +55,13 @@ public class GuessNumberGame {
         for (int i = 0; i < 4; i++) {
             if (number[i] == answer[i])
                 A++;
-            else if(cache[number[i]] == 1 )
+            else if (cache[number[i]] == 1)
                 B++;
         }
         return A + "A" + B + "B";
     }
 
-    public int[] generateAnswer(){
+    public int[] generateAnswer() {
         return answerGenerator.generateAnswer();
     }
 
