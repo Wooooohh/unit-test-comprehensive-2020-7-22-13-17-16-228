@@ -9,7 +9,7 @@ public class ProcessController {
         }
         if(times == 6)
             return 1;
-        return -1;
+        return 2;
     }
 
 }
