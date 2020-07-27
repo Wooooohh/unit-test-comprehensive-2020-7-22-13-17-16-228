@@ -41,6 +41,46 @@ public class GuessNumberGame {
         }
         return result.toString();
     }
+        // plan 2 code in and out with console
+//    public void playGame() {
+//        int[] answer = generateAnswer();
+//        Scanner scanner = new Scanner(System.in);
+//        int times = 1;
+//        int[] number;
+//        while (scanner.hasNext()) {
+//            number = covertIntArray(scanner.nextLine().split(" "));
+//            if (!numberValidator.checkNumber(number)) {
+//                outErrorMessage(times);
+//            } else {
+//                String xAxB = generateResult(number, answer);
+//                int statusCode = processController.isExit(generateResult(number, answer), times++);
+//                if (statusCode == Status.WIN.getCode()) {
+//                    System.out.println(xAxB);
+//                    break;
+//                } else if (statusCode == Status.RUN_OUT.getCode()) {
+//                    System.out.println(xAxB);
+//                    break;
+//                } else if (statusCode == Status.CONTINUE.getCode()) {
+//                    System.out.println(xAxB + "\n");
+//                }
+//            }
+//        }
+//    }
+//
+//    private void outErrorMessage(int times) {
+//        if (times == TOTAL_TIMES)
+//            System.out.println(ERROR_INPUT_INFO);
+//        else
+//            System.out.println(ERROR_INPUT_INFO + "\n");
+//    }
+//
+//    private int[] covertIntArray(String[] numberStringArr) {
+//        int[] number = new int[numberStringArr.length];
+//        for( int i =0; i < numberStringArr.length; i++){
+//            number[i] = Integer.valueOf(numberStringArr[i]);
+//        }
+//        return number;
+//    }
 
     private void appendErrorMessage(StringBuilder result, int times) {
         if (times == TOTAL_TIMES)
