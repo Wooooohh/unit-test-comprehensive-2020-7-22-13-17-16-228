@@ -3,8 +3,9 @@ package practice;
 public class Result {
     int numA;
     int numB;
-    Result(){
-
+    Result(int numA, int numB){
+        this.numA = numA;
+        this.numB = numB;
     }
 
     public int getNumA() {
@@ -21,5 +22,17 @@ public class Result {
 
     public void setNumB(int numB) {
         this.numB = numB;
+    }
+
+    public void addA(){
+        numA++;
+    }
+
+    public void addB(){
+        numB++;
+    }
+
+    public String formatResult() {
+        return numA + "A" + numB + "B";
     }
 }
