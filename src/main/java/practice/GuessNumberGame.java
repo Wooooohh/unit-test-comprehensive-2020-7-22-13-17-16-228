@@ -4,6 +4,7 @@ package practice;
 //import java.util.Scanner;
 
 import static practice.ConstantPool.ERROR_INPUT_INFO;
+import static practice.ConstantPool.TOTAL_TIMES;
 
 public class GuessNumberGame {
 
@@ -12,8 +13,6 @@ public class GuessNumberGame {
     NumberValidator numberValidator;
 
     ProcessController processController;
-
-    final int TOTAL_TIMES = 6;
 
     GuessNumberGame(AnswerGenerator answerGenerator) {
         this.answerGenerator = answerGenerator;
@@ -66,7 +65,7 @@ public class GuessNumberGame {
 //            }
 //        }
 //    }
-//
+
 //    private void outErrorMessage(int times) {
 //        if (times == TOTAL_TIMES)
 //            System.out.println(ERROR_INPUT_INFO);

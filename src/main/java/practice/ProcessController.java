@@ -1,5 +1,6 @@
 package practice;
 
+import static practice.ConstantPool.TOTAL_TIMES;
 import static practice.ConstantPool.WIN_RESULT;
 
 public class ProcessController {
@@ -15,11 +16,11 @@ public class ProcessController {
     }
 
     private boolean isTimesOver(int times) {
-        return times == 6;
+        return times == TOTAL_TIMES;
     }
 
     private boolean isTimesInRange(int times) {
-        return times > 0 && times < 6;
+        return times > 0 && times < TOTAL_TIMES;
     }
 
 }
