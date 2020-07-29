@@ -93,10 +93,15 @@ public class GuessNumberGame {
     }
 
     public String generateResult(int[] number, int[] answer) {
-        return countResult(calculateAppear(answer), number, new Result(0, 0),answer).formatResult();
+
+        Result result = countResult(number ,answer);
+
+        return result.formatResult();
     }
 
-    private Result countResult(int[] appearArr, int[] number, Result result, int[] answer) {
+    private Result countResult(int[] number, int[] answer) {
+        int[] appearArr = calculateAppear(answer);
+        Result result = new Result(0, 0);
         for (int i = 0; i < 4; i++) {
             if (number[i] == answer[i])
                 result.addA();

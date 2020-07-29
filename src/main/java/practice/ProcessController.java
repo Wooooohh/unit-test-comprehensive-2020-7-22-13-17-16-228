@@ -6,13 +6,14 @@ import static practice.ConstantPool.WIN_RESULT;
 public class ProcessController {
 
     public int isExit(String result, int times) {
-        if (isTimesInRange(times)) {
-            if (result.equals(WIN_RESULT))
-                return Status.WIN.getCode();
-        }
+        if (result.equals(WIN_RESULT))
+            return Status.WIN.getCode();
         if (isTimesOver(times))
             return Status.RUN_OUT.getCode();
-        return Status.CONTINUE.getCode();
+        if (isTimesInRange(times)) {
+            return Status.CONTINUE.getCode();
+        }
+        return -1;
     }
 
     private boolean isTimesOver(int times) {
