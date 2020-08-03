@@ -34,7 +34,7 @@ public class GuessNumberGame {
                     result.append(xAxB);
                     break;
                 } else if (statusCode == Status.CONTINUE.getCode()) {
-                    result.append(xAxB + "\n");
+                    result.append(xAxB).append("\n");
                 }
             }
         }

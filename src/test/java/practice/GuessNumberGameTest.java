@@ -1,17 +1,18 @@
 package practice;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GuessNumberGameTest {
 
     //计算A+B
     @Test
-    public void should_return_4A0B_when_generateResult_given_1234 (){
+    public void should_return_4A0B_when_generateResult_given_1234() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
         int[] answer = guessNumberGame.generateAnswer();
-        int[] number = {1,2,3,4};
+        int[] number = {1, 2, 3, 4};
 //        when
         String result = guessNumberGame.generateResult(number, answer);
 //        then
@@ -19,11 +20,11 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_0A4B_when_generateResult_given_4321(){
+    public void should_return_0A4B_when_generateResult_given_4321() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
         int[] answer = guessNumberGame.generateAnswer();
-        int[] number = {4,3,2,1};
+        int[] number = {4, 3, 2, 1};
 //        when
         String result = guessNumberGame.generateResult(number, answer);
 //        then
@@ -31,11 +32,11 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_0A0B_when_generateResult_given_5678(){
+    public void should_return_0A0B_when_generateResult_given_5678() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
         int[] answer = guessNumberGame.generateAnswer();
-        int[] number = {5,6,7,8};
+        int[] number = {5, 6, 7, 8};
 //        when
         String result = guessNumberGame.generateResult(number, answer);
 //        then
@@ -43,11 +44,11 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_0A2B_when_generateResult_given_3456(){
+    public void should_return_0A2B_when_generateResult_given_3456() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
         int[] answer = guessNumberGame.generateAnswer();
-        int[] number = {3,4,5,8};
+        int[] number = {3, 4, 5, 8};
 //        when
         String result = guessNumberGame.generateResult(number, answer);
 //        then
@@ -55,11 +56,11 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_1A3B_when_generateResult_given_1423(){
+    public void should_return_1A3B_when_generateResult_given_1423() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
         int[] answer = guessNumberGame.generateAnswer();
-        int[] number = {1,4,2,3};
+        int[] number = {1, 4, 2, 3};
 //        when
         String result = guessNumberGame.generateResult(number, answer);
 //        then
@@ -67,11 +68,11 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_1A1B_when_generateResult_given_7514(){
+    public void should_return_1A1B_when_generateResult_given_7514() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
         int[] answer = guessNumberGame.generateAnswer();
-        int[] number = {7,5,1,4};
+        int[] number = {7, 5, 1, 4};
 //        when
         String result = guessNumberGame.generateResult(number, answer);
 //        then
@@ -81,22 +82,22 @@ public class GuessNumberGameTest {
 
     //whole process
     @Test
-    public void should_return_1A0B_0A2B_1A2B_0A0B_0A4B_4A0B_when_play_game_given_1567_2478_0324_5678_4321_1234(){
+    public void should_return_1A0B_0A2B_1A2B_0A0B_0A4B_4A0B_when_play_game_given_1567_2478_0324_5678_4321_1234() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
-        int[][] number = {{1,5,6,7},{2,4,7,8},{0,3,2,4},{5,6,7,8},{4,3,2,1},{1,2,3,4}};
+        int[][] number = {{1, 5, 6, 7}, {2, 4, 7, 8}, {0, 3, 2, 4}, {5, 6, 7, 8}, {4, 3, 2, 1}, {1, 2, 3, 4}};
         String expected = "1A0B\n0A2B\n1A2B\n0A0B\n0A4B\n4A0B";
 //        when
-        String result = guessNumberGame. playGame(number);
+        String result = guessNumberGame.playGame(number);
 //        then
         assertEquals(expected, result);
     }
 
     @Test
-    public void should_return_1A0B_0A2B_1A2B_0A0B_0A4B_wrong_input_when_play_game_given_1567_2478_0324_5678_4321_1f932(){
+    public void should_return_1A0B_0A2B_1A2B_0A0B_0A4B_wrong_input_when_play_game_given_1567_2478_0324_5678_4321_1f932() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
-        int[][] number = {{1,5,6,7},{2,4,7,8},{0,3,2,4},{5,6,7,8},{4,3,2,1},{1,-1,3,2}};
+        int[][] number = {{1, 5, 6, 7}, {2, 4, 7, 8}, {0, 3, 2, 4}, {5, 6, 7, 8}, {4, 3, 2, 1}, {1, -1, 3, 2}};
         String expected = "1A0B\n0A2B\n1A2B\n0A0B\n0A4B\nWrong Input，Input again";
 //        when
         String result = guessNumberGame.playGame(number);
@@ -105,10 +106,10 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_1A0B_0A2B_1A2B_0A0B_4A0B_when_play_game_given_1567_2478_0324_5678_1234_4321(){
+    public void should_return_1A0B_0A2B_1A2B_0A0B_4A0B_when_play_game_given_1567_2478_0324_5678_1234_4321() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
-        int[][] number = {{1,5,6,7},{2,4,7,8},{0,3,2,4},{5,6,7,8},{1,2,3,4},{4,3,2,1}};
+        int[][] number = {{1, 5, 6, 7}, {2, 4, 7, 8}, {0, 3, 2, 4}, {5, 6, 7, 8}, {1, 2, 3, 4}, {4, 3, 2, 1}};
         String expected = "1A0B\n0A2B\n1A2B\n0A0B\n4A0B";
 //        when
         String result = guessNumberGame.playGame(number);
@@ -117,10 +118,10 @@ public class GuessNumberGameTest {
     }
 
     @Test
-    public void should_return_1A0B_0A2B_1A2B_0A0B_0A4B_0A4B_4A0B_when_play_game_given_1567_2478_0324_5678_4321_4321_1234(){
+    public void should_return_1A0B_0A2B_1A2B_0A0B_0A4B_0A4B_4A0B_when_play_game_given_1567_2478_0324_5678_4321_4321_1234() {
 //        given
         GuessNumberGame guessNumberGame = new GuessNumberGame(new FixedAnswerGenerator());
-        int[][] number = {{1,5,6,7},{2,4,7,8},{0,3,2,4},{5,6,7,8},{4,3,2,1},{4,3,2,1},{1,2,3,4}};
+        int[][] number = {{1, 5, 6, 7}, {2, 4, 7, 8}, {0, 3, 2, 4}, {5, 6, 7, 8}, {4, 3, 2, 1}, {4, 3, 2, 1}, {1, 2, 3, 4}};
         String expected = "1A0B\n0A2B\n1A2B\n0A0B\n0A4B\n0A4B";
 //        when
         String result = guessNumberGame.playGame(number);

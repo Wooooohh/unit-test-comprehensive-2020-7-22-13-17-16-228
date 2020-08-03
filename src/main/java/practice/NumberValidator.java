@@ -22,7 +22,7 @@ public class NumberValidator {
     }
 
     private boolean isValueInRange(int value) {
-        return value > 0 && value < 10;
+        return value >= 0 && value < 10;
     }
 
     public boolean isValueDuplicate(int[] number){
